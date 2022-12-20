@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import (buscar, index, mostrar_familiares, saludar_a, sumar, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar)
+from ejemplo.views import (
+    buscar, index, mostrar_familiares, mostrar_mascotas, mostrar_automoviles,
+    saludar_a, sumar, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, BuscarMascota,
+    AltaMascotas, BuscarAutomovil, AltaAutomoviles, ActualizarAutomovil, ActualizarMascota
+    )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +32,13 @@ urlpatterns = [
     path('mi-familia/alta', AltaFamiliar.as_view()), # NUEVA RUTA PARA BUSCAR FAMILIAR
     path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()), # NUEVA RUTA PARA actualizar FAMILIAR
     path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+    path('mascotas/', mostrar_mascotas),
+    path('automoviles/', mostrar_automoviles),
+    path('mascotas/buscar', BuscarMascota.as_view()),
+    path('automoviles/buscar', BuscarAutomovil.as_view()),
+    path('mascotas/alta', AltaMascotas.as_view()),
+    path('automoviles/alta', AltaAutomoviles.as_view()),
+    path('mascotas/actualizar/<int:pk>', ActualizarMascota.as_view()),
+    path('automoviles/actualizar/<int:pk>', ActualizarAutomovil.as_view()),
 ]
  

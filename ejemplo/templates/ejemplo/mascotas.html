@@ -1,0 +1,15 @@
+{% extends 'ejemplo/base.html' %}
+{% block contenido %}
+{% for mascota in lista_mascotas %}
+<ul>
+    <li> Nombre: {{mascota.nombre}}, Raza: {{mascota.raza}}, Edad: {{mascota.edad}}
+        <!-- Esto agrega un link al form de actulización-->
+        <a href='actualizar/{{ mascota.id }}'>Actualizar</a>
+    </li>
+</ul>
+{% endfor %}
+{%endblock %}
+
+{% block titulo%}
+Lista de Mascotas
+{% endblock %}

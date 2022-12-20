@@ -1,0 +1,15 @@
+{% extends 'ejemplo/base.html' %}
+{% block contenido %}
+{% for automovil in lista_automoviles %}
+<ul>
+    <li> Marca: {{automovil.marca}}, Modelo: {{automovil.modelo}}, Año: {{automovil.año}}
+        <!-- Esto agrega un link al form de actulización-->
+        <a href='actualizar/{{ automovil.id }}'>Actualizar</a>
+    </li>
+</ul>
+{% endfor %}
+{%endblock %}
+
+{% block titulo%}
+Lista de Automoviles
+{% endblock %}
