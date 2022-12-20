@@ -19,7 +19,7 @@ class FamiliarForm(forms.ModelForm):
 class AutomovilForm(forms.ModelForm):
   class Meta:
     model = Automovil
-    fields = ['marca', 'modelo', 'año']
+    fields = ['marca', 'modelo', 'anio']
 
 class MascotaForm(forms.ModelForm):
   class Meta:

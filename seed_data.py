@@ -5,6 +5,6 @@ Familiar(nombre="Rosa", direccion="General Paz 709", numero_pasaporte=10991019).
 Familiar(nombre="Edgar", direccion="2da casa despues de la tranquera", numero_pasaporte=10551541).save()
 print("Se cargo con éxito los usuarios de pruebas")
 
-Mascota(nombre="Toto", raza="Perro", edad=2).save()
+Mascota(nombre="Fatiga", raza="gato", edad=2).save()
 
-Automovil(marca="Toyota", modelo="Corolla", año="2006").save()
+Automovil(marca="Toyota", modelo="Corolla", anio="2006").save()

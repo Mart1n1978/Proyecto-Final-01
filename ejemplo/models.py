@@ -13,10 +13,10 @@ class Automovil(models.Model):
 
     marca = models.CharField(max_length=100)
     modelo = models.CharField(max_length=200)
-    año = models.CharField(max_length=200)
+    anio = models.CharField(max_length=200)
           
     def __str__(self):
-      return f"{self.marca}, {self.modelo}, {self.año}"
+      return f"{self.marca}, {self.modelo}, {self.anio}"
 
 class Mascota(models.Model):
 

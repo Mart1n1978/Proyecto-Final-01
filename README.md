@@ -15,13 +15,14 @@ Para correr el programa, realizar los siguientes pasos:
 
 5 Ya se puede abrir la pagina que aparece en el texto, tipicamente: http://127.0.0.1:8000/
 
-6 Si quieres tener algunos datos precargados, en la terminal, ejecuta los comandos: python manage.py shell import seed_data
+6 Para precarga de datos, en la terminal, ejecuta los comandos:
+    python manage.py shell
+    import seed_data
 
-En la web hay 3 tipos de modelos: mi-familia, automoviles y mascotas:
-
-Reemplaza las url que ves abajo a la url en la barra de direcciones para utilizarlas.
-
-
+En la web hay 3 tipos de modelos:
+mi-familia
+automoviles
+mascotas
 
 Familia
 

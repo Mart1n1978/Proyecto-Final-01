@@ -2,7 +2,7 @@
 {% block contenido %}
 {% for automovil in lista_automoviles %}
 <ul>
-    <li> Marca: {{automovil.marca}}, Modelo: {{automovil.modelo}}, Año: {{automovil.año}}
+    <li> Marca: {{automovil.marca}}, Modelo: {{automovil.modelo}}, Anio: {{automovil.anio}}
         <!-- Esto agrega un link al form de actulización-->
         <a href='actualizar/{{ automovil.id }}'>Actualizar</a>
     </li>

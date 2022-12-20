@@ -204,7 +204,7 @@ class AltaAutomoviles(View):
 
     form_class = AutomovilForm
     template_name = 'ejemplo/alta_automoviles.html'
-    initial = {"marca":"", "modelo":"", "año":""}
+    initial = {"marca":"", "modelo":"", "anio":""}
 
     def get(self, request):
         form = self.form_class(initial=self.initial)
@@ -224,7 +224,7 @@ class AltaAutomoviles(View):
 class ActualizarAutomovil(View):
   form_class = AutomovilForm
   template_name = 'ejemplo/actualizar_automovil.html'
-  initial = {"marca":"", "modelo":"", "año":""}
+  initial = {"marca":"", "modelo":"", "anio":""}
   
   # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
   def get(self, request, pk): 
