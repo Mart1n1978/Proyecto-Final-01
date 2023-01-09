@@ -2,7 +2,7 @@
 {% block titulo%} Modificar una Mascota {% endblock %}
 {% block contenido %}
 
-<!-- Prestar aatención a la variable familiar.id -->
+<!-- Prestar aatención a la variable mascota.id -->
 <form action="/mascotas/actualizar/{{ mascota.id }}" method="post"> 
     {% csrf_token %}
     {{ form }}
