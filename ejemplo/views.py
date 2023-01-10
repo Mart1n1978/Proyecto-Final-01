@@ -3,6 +3,20 @@ from ejemplo.models import Familiar, Automovil, Mascota
 from ejemplo.forms import Buscar, BuscarAutomoviles, BuscarMascotas, FamiliarForm, AutomovilForm, MascotaForm # <--- NUEVO IMPORT
 from django.views import View # <-- NUEVO IMPORT 
 
+
+def mostrar_familiares(request):
+    lista_familiares = Familiar.objects.all()
+    return render(request, "ejemplo/familiares.html", {"lista_familiares": lista_familiares})
+
+def mostrar_automoviles(request):
+    lista_automoviles = Automovil.objects.all()
+    return render(request, "ejemplo/automoviles.html", {"lista_automoviles": lista_automoviles})
+
+def mostrar_mascotas(request):
+    lista_mascotas = Mascota.objects.all()
+    return render(request, "ejemplo/mascotas.html", {"lista_mascotas": lista_mascotas})
+
+
 def index(request):
     return render(request, "ejemplo/saludar.html") 
 
@@ -31,17 +45,7 @@ def buscar(request):
         resultado = 'no hay match'
     return render(request, 'ejemplo/buscar.html', {'resultado': resultado})
 
-def mostrar_familiares(request):
-    lista_familiares = Familiar.objects.all()
-    return render(request, "ejemplo/familiares.html", {"lista_familiares": lista_familiares})
 
-def mostrar_automoviles(request):
-    lista_automoviles = Automovil.objects.all()
-    return render(request, "ejemplo/automoviles.html", {"lista_automoviles": lista_automoviles})
-
-def mostrar_mascotas(request):
-    lista_mascotas = Mascota.objects.all()
-    return render(request, "ejemplo/mascotas.html", {"lista_mascotas": lista_mascotas})
 
 
 class BuscarFamiliar(View):
@@ -115,6 +119,25 @@ class BorrarFamiliar(View):
         familiar.delete()
         familiares = Familiar.objects.all()
         return render(request, self.template_name, {'lista_familiares': familiares})
+
+class BorrarMascota(View):
+    template_name = 'ejemplo/mascotas.html'
+      
+    def get(self, request, pk): 
+        mascota = get_object_or_404(Mascota, pk=pk)
+        mascota.delete()
+        mascotas = Mascota.objects.all()
+        return render(request, self.template_name, {'lista_mascotas': mascotas})
+
+class BorrarAutomovil(View):
+    template_name = 'ejemplo/automoviles.html'
+      
+    def get(self, request, pk): 
+        automovil = get_object_or_404(Automovil, pk=pk)
+        automovil.delete()
+        automoviles = Automovil.objects.all()
+        return render(request, self.template_name, {'lista_automoviles': automoviles})
+
 
 class BuscarMascota(View):
     form_class = BuscarMascotas

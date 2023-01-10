@@ -1,15 +1,19 @@
 {% extends 'ejemplo/base.html' %}
-{% block contenido %}
-{% for mascota in lista_mascotas %}
-<ul>
-    <li> Nombre: {{mascota.nombre}}, Raza: {{mascota.raza}}, Edad: {{mascota.edad}}
-        <!-- Esto agrega un link al form de actulización-->
-        <a href='actualizar/{{ mascota.id }}'>Actualizar</a>
-    </li>
-</ul>
-{% endfor %}
-{%endblock %}
 
 {% block titulo%}
 Lista de Mascotas
 {% endblock %}
+{% block contenido %}
+
+    <a href="/mascotas/alta">Nueva Mascota</a>
+    <ul>
+    {% for mascota in lista_mascotas %}
+        <li>
+           id: {{mascota.id}}, Nombre: {{mascota.nombre}}, raza: {{mascota.raza}}, edad: {{mascota.edad}}
+           <a href="/mascotas/actualizar/{{ mascota.id }}">Actualizar</a>
+           <a href="/mascotas/borrar/{{ mascota.id }}">Borrar</a>
+        </li>
+    {% endfor %}
+      </ul>
+{% endblock %}
+

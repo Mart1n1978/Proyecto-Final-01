@@ -18,7 +18,8 @@ from django.urls import path
 from ejemplo.views import (
     buscar, index, mostrar_familiares, mostrar_mascotas, mostrar_automoviles,
     saludar_a, sumar, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, BuscarMascota,
-    AltaMascotas, BuscarAutomovil, AltaAutomoviles, ActualizarAutomovil, ActualizarMascota
+    AltaMascotas, BuscarAutomovil, AltaAutomoviles, ActualizarAutomovil, ActualizarMascota,
+    BorrarMascota, BorrarAutomovil,
     )
 
 urlpatterns = [
@@ -40,5 +41,7 @@ urlpatterns = [
     path('automoviles/alta', AltaAutomoviles.as_view()),
     path('mascotas/actualizar/<int:pk>', ActualizarMascota.as_view()),
     path('automoviles/actualizar/<int:pk>', ActualizarAutomovil.as_view()),
+    path('mascotas/borrar/<int:pk>', BorrarMascota.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+    path('automoviles/borrar/<int:pk>', BorrarAutomovil.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
 ]
  
