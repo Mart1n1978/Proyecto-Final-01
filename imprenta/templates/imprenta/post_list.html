@@ -1,0 +1,9 @@
+{% extends 'imprenta/base.html' %}
+
+{% block contenido %} 
+
+{% for post in object_list %}
+    <li>{{post.titulo}}</li>
+{% endfor %}
+
+{% endblock %}
