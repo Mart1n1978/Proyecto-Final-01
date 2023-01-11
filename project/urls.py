@@ -21,6 +21,7 @@ from ejemplo.views import (
     AltaMascotas, BuscarAutomovil, AltaAutomoviles, ActualizarAutomovil, ActualizarMascota,
     BorrarMascota, BorrarAutomovil,
     )
+from imprenta.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,5 +44,6 @@ urlpatterns = [
     path('automoviles/actualizar/<int:pk>', ActualizarAutomovil.as_view()),
     path('mascotas/borrar/<int:pk>', BorrarMascota.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
     path('automoviles/borrar/<int:pk>', BorrarAutomovil.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
+    path('imprenta/', index),
 ]
  
