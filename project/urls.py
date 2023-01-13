@@ -20,8 +20,12 @@ from ejemplo.views import (
     saludar_a, sumar, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, BuscarMascota,
     AltaMascotas, BuscarAutomovil, AltaAutomoviles, ActualizarAutomovil, ActualizarMascota,
     BorrarMascota, BorrarAutomovil,
-    )
-from imprenta.views import index, PostList, PostCrear
+)
+from imprenta.views import (index, PostDetalle, PostListar,
+                            PostCrear, PostBorrar, PostActualizar, UserSignUp,
+                            UserLogin, UserLogout
+)
+from django.contrib.admin.views.decorators import staff_member_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,7 +49,14 @@ urlpatterns = [
     path('mascotas/borrar/<int:pk>', BorrarMascota.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
     path('automoviles/borrar/<int:pk>', BorrarAutomovil.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
     path('imprenta/', index, name="imprenta-index"),
-    path('imprenta/listar', PostList.as_view(), name="imprenta-listar"),
-    path('imprenta/crear', PostCrear.as_view(), name="imprenta-crear"),
-]
+    path('imprenta/<int:pk>/detalle/', PostDetalle.as_view(), name="imprenta-detalle"),
+    path('imprenta/listar/', PostListar.as_view(), name="imprenta-listar"),
+    path('imprenta/crear/', staff_member_required(PostCrear.as_view()), name="imprenta-crear"),
+    path('imprenta/<int:pk>/borrar/', staff_member_required(PostCrear.as_view()), name="imprenta-borrar"),
+    path('imprenta/<int:pk>/actualizar/', staff_member_required(PostCrear.as_view()), name="imprenta-actualizar"),
+    path('imprenta/signup/', UserSignUp.as_view(), name="imprenta-signup"),
+    path('imprenta/login/', UserLogin.as_view(), name="imprenta-login"),
+    path('imprenta/logout/', UserLogout.as_view(), name="imprenta-logout"),
+] 
+
  
