@@ -2,8 +2,11 @@
 
 {% block contenido %}
     <h1>{{object.titulo}}</h1>
-    <h1>{{object.sub_titulo}}</h1>
+    <h2>{{object.sub_titulo}}</h2>
     <div>
+        <img height="256" src="{{object.imagen.url}}">
+    </div>
+    </div>
         {{object.texto}}
     </div>
 {% endblock %}

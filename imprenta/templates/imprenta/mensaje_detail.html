@@ -1,0 +1,9 @@
+{% extends 'imprenta/base.html' %}
+
+{% block contenido %}
+<ul>
+    <li>{{mensaje.nombre}} -- {{mensaje.email}}</li>
+    <pre>{{mensaje.texto}}</pre>
+</ul>
+
+{% endblock %}

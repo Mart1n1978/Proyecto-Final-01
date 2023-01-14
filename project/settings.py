@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ejemplo.apps.EjemploConfig', # ESTA ES LA NUEVA APP !!
     'imprenta.apps.ImprentaConfig', # ESTA ES LA NUEVA APP !!
-    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -126,4 +125,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'imprenta-login'
+LOGIN_URL = "imprenta-login"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "media/"

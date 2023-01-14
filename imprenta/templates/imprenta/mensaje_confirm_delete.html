@@ -1,0 +1,13 @@
+{% extends 'imprenta/base.html' %}
+
+{% block contenido %}
+<form style="text-align: center;" method="post">
+    {% csrf_token %}
+    <p>¿Seguro que desea borrar el mensaje'? </p>
+    <p>
+    <a class="btn btn-primary" href="{% url 'imprenta-mensajes-listar' %}" type="button" >No</a>
+    <input class="btn btn-primary" type="submit" value="Si">
+    </p>
+</form>
+<p></p>
+{% endblock %}

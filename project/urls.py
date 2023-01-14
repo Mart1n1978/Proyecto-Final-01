@@ -13,8 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static 
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView 
 from ejemplo.views import (
     buscar, index, mostrar_familiares, mostrar_mascotas, mostrar_automoviles,
     saludar_a, sumar, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, BuscarMascota,
@@ -22,8 +25,10 @@ from ejemplo.views import (
     BorrarMascota, BorrarAutomovil,
 )
 from imprenta.views import (index, PostDetalle, PostListar,
-                            PostCrear, PostBorrar, PostActualizar, UserSignUp,
-                            UserLogin, UserLogout
+                            PostCrear, PostBorrar, PostActualizar, 
+                            UserSignUp, UserLogin, UserLogout, UserActualizar,
+                            AvatarActualizar,
+                            MensajeCrear, MensajeBorrar, MensajeListar, MensajeDetalle, about
 )
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -49,14 +54,21 @@ urlpatterns = [
     path('mascotas/borrar/<int:pk>', BorrarMascota.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
     path('automoviles/borrar/<int:pk>', BorrarAutomovil.as_view()), # NUEVA RUTA PARA borrar FAMILIAR
     path('imprenta/', index, name="imprenta-index"),
+    path('imprenta/about', about, name= 'imprenta-about'),
     path('imprenta/<int:pk>/detalle/', PostDetalle.as_view(), name="imprenta-detalle"),
     path('imprenta/listar/', PostListar.as_view(), name="imprenta-listar"),
     path('imprenta/crear/', staff_member_required(PostCrear.as_view()), name="imprenta-crear"),
-    path('imprenta/<int:pk>/borrar/', staff_member_required(PostCrear.as_view()), name="imprenta-borrar"),
-    path('imprenta/<int:pk>/actualizar/', staff_member_required(PostCrear.as_view()), name="imprenta-actualizar"),
+    path('imprenta/<int:pk>/borrar/', staff_member_required(PostBorrar.as_view()), name="imprenta-borrar"),
+    path('imprenta/<int:pk>/actualizar/', staff_member_required(PostActualizar.as_view()), name="imprenta-actualizar"),
     path('imprenta/signup/', UserSignUp.as_view(), name="imprenta-signup"),
     path('imprenta/login/', UserLogin.as_view(), name="imprenta-login"),
     path('imprenta/logout/', UserLogout.as_view(), name="imprenta-logout"),
+    path('imprenta/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name="imprenta-avatars-actualizar"),
+    path('imprenta/users/<int:pk>/actualizar/', UserActualizar.as_view(), name="imprenta-users-actualizar"),
+    path('imprenta/mensajes/crear/', MensajeCrear.as_view(), name="imprenta-mensajes-crear"),
+    path('imprenta/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name="imprenta-mensajes-detalle"),
+    path('imprenta/mensajes/listar/', MensajeListar.as_view(), name="imprenta-mensajes-listar"),
+    path('imprenta/mensajes/<int:pk>/borrar/', staff_member_required(MensajeBorrar.as_view()), name = 'imprenta-mensajes-borrar'),
 ] 
 
- 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
