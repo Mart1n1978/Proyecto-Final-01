@@ -1,35 +1,15 @@
-# Proyecto-Final-01
-Mi Proyecto Final
-
-## Arrancamos con Django
-
-Para correr el programa, realizar los siguientes pasos:
-
 1 Abrir VSCode.
 
-2 Seleccionar Clone git repository y agregar la URL de este proyecto.
+2 Seleccionar o crear una carpeta del programa.
 
-3 Seleccionar o crear una carpeta para el programa.
+4 Para abrir el servidor, en la terminal ejecutar el comando python manage.py runserver
 
-4 En la terminal ejecuta los comandos: python manage.py migrate python manage.py runserver
+5 Se visualiza la siguiente pagina: http://127.0.0.1:8000/
 
-5 Ya se puede abrir la pagina que aparece en el texto, tipicamente: http://127.0.0.1:8000/
+http://127.0.0.1:8000/imprenta/: Muestra el blog de inicio de la empresa
 
-6 Para precarga de datos, en la terminal, ejecuta los comandos:
-    python manage.py shell
-    import seed_data
+El blog se encuentra funcionando correctamente. Se adjunta link de video
 
-En la web hay 3 tipos de modelos:
-mi-familia
-automoviles
-mascotas
+https://youtu.be/vfH4rSzByhw
 
-Familia
-
-http://127.0.0.1:8000/mi-familia : Para ver los familiares(sólo veras Familiares pre cargados si hiciste el paso 6)
-
-http://127.0.0.1:8000/mi-familia/alta Para crear un familiar nuevo
-
-http://127.0.0.1:8000/mi-familia/buscar Para buscar un familiar por nombre
-
-Reemplaza mi-familia por automoviles y mascotas respectivamente.
+ Muchas gracias
