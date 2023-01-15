@@ -9,7 +9,7 @@ from imprenta.forms import UsuarioForm
 from imprenta.models import Avatar, Post, Mensaje
 from django.contrib.auth.admin import User
 
-#si se pone @login_required en cualquier funcion entonces se debera loguear para poder entrar
+@login_required#si se pone @login_required en cualquier funcion entonces se debera loguear para poder entrar
 def index(request):
     posts = Post.objects.order_by('-publicado_el').all()
     return render(request, "imprenta/index.html", {"posts": posts})

@@ -19,6 +19,7 @@
         {% endif %}
         {% if user.is_authenticated %}
             <a href="{% url 'imprenta-actualizar' post.id %}">Actualizar</a>
+            <a href="{% url 'imprenta-mensajes-crear' %}">Crear Mensaje</a>
         {% endif %}
         <a href="{% url 'imprenta-detalle' post.id %}">Ver</a>
     </li>
